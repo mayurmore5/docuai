@@ -108,8 +108,8 @@ const Chat = ({ docId }) => {
         <div className="chat-container glass-panel">
             <div className="messages-area">
                 {messages.map((msg, index) => (
-                    <div key={index} className={`message-wrapper ${msg.role}`}>
-                        <div className={`message-bubble ${msg.role}`}>
+                    <div key={index} className={`message ${msg.role}`}>
+                        <div className="message-content">
                             <ReactMarkdown>{msg.content}</ReactMarkdown>
                             {msg.sources && msg.sources.length > 0 && (
                                 <div className="sources">
@@ -124,7 +124,7 @@ const Chat = ({ docId }) => {
                         </div>
                     </div>
                 ))}
-                {loading && <div className="message-wrapper assistant"><div className="message-bubble assistant typing">Thinking...</div></div>}
+                {loading && <div className="message assistant"><div className="message-content typing">Thinking...</div></div>}
                 <div ref={messagesEndRef} />
             </div>
             <div className="input-area">
@@ -132,6 +132,7 @@ const Chat = ({ docId }) => {
                     {isListening ? '🛑' : '🎤'}
                 </button>
                 <textarea
+                    className="chat-input"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={handleKeyDown}
