@@ -1,0 +1,13 @@
+flask
+flask-cors
+pinecone
+rank_bm25
+spacy
+groq
+python-docx
+pypdf
+python-pptx
+requests
+python-dotenv
+werkzeug
+google-generativeai
